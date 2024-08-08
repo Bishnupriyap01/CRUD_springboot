@@ -5,7 +5,6 @@ import com.bishnupriya.restapi.restapi.entities.EmployeeEntity;
 import com.bishnupriya.restapi.restapi.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,14 +49,17 @@ public class EmployeeService {
         if (existingEmployee != null) {
             existingEmployee.setName(updatedEmployeeDTO.getName());
             existingEmployee.setDoj(updatedEmployeeDTO.getDoj());
-            // update other fields as necessary
-
             EmployeeEntity savedEmployee = employeeRepository.save(existingEmployee);
-
             return modelMapper.map(savedEmployee, EmployeeDTO.class);
         }
-
         return null;
+    }
+    public List<EmployeeDTO> findByName(String name) {
+        List<EmployeeEntity> employeeEntities = employeeRepository.findByName_(name);
+        return employeeEntities
+                .stream()
+                .map(employeeEntity -> modelMapper.map(employeeEntity, EmployeeDTO.class))
+                .collect(Collectors.toList());
     }
 
 
