@@ -47,6 +47,11 @@ public class EmployeeController {
          }
          return ResponseEntity.ok(updatedEmployee);
      }
+     @GetMapping("/search")
+    public ResponseEntity<List<EmployeeDTO>> findByName(@RequestParam("name") String name) {
+        List<EmployeeDTO> employees = employeeService.findByName(name);
+        return ResponseEntity.ok(employees);
+    }
 
 
 
