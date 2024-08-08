@@ -18,6 +18,8 @@
 <b>Delete Data by Id :<b> <br>
 ![image](https://github.com/user-attachments/assets/484590f7-57b4-4cdd-85d0-24b0ccf0e59c)
 
+<b>**FindByName method implementaion in Repository.</b>
+<img width="1060" alt="Screenshot 2024-08-08 at 15 21 16" src="https://github.com/user-attachments/assets/a5c653be-9cbd-4893-9394-9d27c536e308">
 
 
 
